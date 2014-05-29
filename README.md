@@ -9,4 +9,4 @@ The Chipkit is an arduino compatible platform powered by a 32bit Microchip PIC p
 First up is the Eagle CAD project files.
 To follow is the compelete source code.
 
-(More information is available on my blog.)[http://catmacey.wordpress.com/tag/chipstomp/]
+[More information is available on my blog.](http://catmacey.wordpress.com/tag/chipstomp/)

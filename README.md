@@ -11,13 +11,13 @@ The project is relativly simple in that it limits itself to using the PIC's inte
 Currently the following effects are completed.
 - **Flanger** : Classic wobbly tape effect.
 
-- **Tremolo** : Low frequency modulation of the incomming audio.
+- **Tremolo** : Low frequency modulation of the source audio.
 
 - **Pitch shift** : Change the pitch (up or down) of the source audio without changing the playback speed.
 
 - **Echo/Delay** : A simple lo-fi delay (700ms Max) that when combined with a bit of analogue feedback provides a nice echo.
 
-- **Bitcrusher** : Reduce the sample rate by ratios down to 1/64 of the sample rate, also reduce the bit-depth to create some nice messy sounds.
+- **Bitcrusher** : Reduces the sample rate by ratios down to 1/64 of the source rate, also reduces the bit-depth to create some nice messy sounds.
 
 You can have all or just some of these effect running at the same time with each passing its output onto the next effects input. 
 

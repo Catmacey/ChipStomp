@@ -7,8 +7,12 @@
 
 #include <stdint.h> 
 
-#define SAMPLERATE 44100    // Hz
-#define SAMPLETIME 0.023 // Approx sample time in mS 
+// #define SAMPLERATE 44100    // Hz
+// #define SAMPLETIME 0.02267 // Approx sample time in mS 
+#define SAMPLERATE 40000
+#define SAMPLETIME 0.025
+// #define SAMPLERATE 32000  
+// #define SAMPLETIME 0.03125
 #define CLIPLEVEL 31000  // Full range is +32767 to -32767 but this is the level we light the LED at.
 #define CLIPHARD 32767
 

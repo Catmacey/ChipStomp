@@ -17,7 +17,7 @@
 #define WAVE_LEN 0x03ff  // Number of samples
 #define AMP_MAX 0xffff
 #define AMP_MIN 0x0000
-#define STEP_MAX 0x03ff
+#define STEP_MAX 0x01ff
 #define STEP_MIN 0x0001
 #define POSITION_MAX 0x0003ffff  
 #define BASEFREQ SAMPLERATE / WAVE_LEN  // 43hz for 1024 samples @ 44.1khz
@@ -102,11 +102,10 @@ int32_t tremolo_effectISR(int32_t value){
   // Retrieve first sine sample sample
   sine1 = g_sinewave[idx];
   idx++; // go to next sample
-  // TODO: Check this is actually correct. I'm not sure STEP_MAX is the right value to be using here.
-  idx &= STEP_MAX; // check if we've gone over the boundary.
+  idx &= WAVE_LEN; // check if we've gone over the boundary.
                    // we can do this because its a multiple of 2^n,
                    // otherwise it would be:
-                   // if (idx  >= 1024) {
+                   // if (idx  >= NNNN) {
                    //   idx  = 0; // reset to 0
                    // }
   // get second sample and put it in sine2 

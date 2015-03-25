@@ -55,6 +55,14 @@ Effect_t *g_effects[] = {
 		, NULL
 	};
 
+// TODO : Create a distortion effect with configuable threshold, shoft/hard clipping.
+// TODO : Add a metronome effect (last in the chain) with config bpm/volume.
+// TODO : Improve input sampling by oversampling (running ADC at faster rate then averaging the results)
+// TODO : Add "cost" to each effect (measured using LA) to allow user to select effects that fit withing the overall CPU budget.
+// TODO : Allow user to change order or load-out of effects to allow duplication of effects?
+// TODO : Allow user to save their current config and effect values. Provide interface to load these saves.
+// TODO : Bandpass|HP|LP filters? Might be too CPU intensive to run concurrent with other effects. (Hence need for cost/budget)
+
 // Digilent hardware SPI library
 DSPI0 spi;
 // OLED Driver : Uses Adafruit GFX library

@@ -37,6 +37,9 @@ typedef volatile uint32_t PortMask;
 
 #define BLACK 0
 #define WHITE 1
+#define GREY 2
+#define SPARE 3
+#define GHOST 4
 
 /*=========================================================================
 		SH1106 Displays

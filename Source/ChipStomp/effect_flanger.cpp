@@ -23,7 +23,7 @@ TODO : Add control over the length of the buffer (within max of BUFFSIZE)
 #define WAVE_LEN 0x03ff  // Number of samples
 #define AMP_MAX 0xffff
 #define AMP_MIN 0x0000
-#define STEP_MAX 0x03ff
+#define STEP_MAX 0x01ff
 #define STEP_MIN 0x0001
 #define POSITION_MAX 0x0003ffff  
 #define BASEFREQ SAMPLERATE / WAVE_LEN  // 43hz for 1024 samples @ 44.1khz
@@ -96,7 +96,7 @@ int32_t flng_effectISR(int32_t value){
   // go to next sample
   idx++;
   // check if we've gone over the boundary.
-  idx &= STEP_MAX; 
+  idx &= WAVE_LEN; 
   // get second sample and put it in sine2 
   sine2 = g_sinewave[idx];
   // Interpolate between samples

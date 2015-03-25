@@ -381,7 +381,6 @@ size_t Adafruit_GFX::write(uint8_t c) {
 void Adafruit_GFX::write(uint8_t c) {
 #endif
   // Need a method to set the font
-  //FONT_INFO Font = liberationMono_11ptFontInfo;
   uint8_t width;
   if (c == '\n') {
     //cursor_y += Font.CharacterHeight;

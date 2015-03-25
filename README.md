@@ -1,6 +1,8 @@
 ChipStomp Guitar Effects Pedal
 ==============================
 
+![ChipStomp](https://catmacey.files.wordpress.com/2014/06/img_0744.jpg?w=869)
+
 This is a digital guitar effects pedal based on the Arduino compatible Chipkit DP32 platform.
 The project is a merging of a ChipKit DP32 with an Open Music Labs Stompshield in a custom build PCB.
 

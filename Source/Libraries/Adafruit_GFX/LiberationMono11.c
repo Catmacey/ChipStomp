@@ -1826,6 +1826,7 @@ const FONT_INFO liberationMono_11ptFontInfo =
 	14, //  Character height
 	' ', //  Start character
 	'~', //  End character
+	"Liberation Mono 11pt", // Name of font
 	liberationMono_11ptDescriptors, //  Character descriptor array
 	liberationMono_11ptBitmaps, //  Character bitmap array
 };

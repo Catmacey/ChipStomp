@@ -92,7 +92,14 @@ class Catmacey_SH1106 : public Adafruit_GFX {
  DSPI *spi;
  public:
 	// DSPI Library handles the setup and definition of MOSI and MISO pins
-	Catmacey_SH1106(int8_t DC, int8_t RST, int8_t CS, DSPI *SPI);
+	Catmacey_SH1106(
+			int8_t DC
+		, int8_t RST
+		, int8_t CS
+		, DSPI *SPI
+		, const FONT_INFO * font_table[]
+		// , const FONT_INFO * const font_table[]
+	);
 
 	void begin();
 	void sh1106_command(uint8_t c);

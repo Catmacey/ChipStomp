@@ -34,6 +34,20 @@
 #include <Catmacey_SH1106.h>
 #include "config.h"
 
+// Include the font's you want here
+#include "LiberationSans10.c"
+// #include "LiberationMono11.c"
+#include "DejaVuSans12.c"
+
+// Make an array of pointers to FONT_INFOs for each font that you want
+// Don't forget to put a NULL at the end
+const FONT_INFO *g_font_table[] = {
+		&liberationSans_10ptFontInfo
+	, &dejaVuSans_12ptFontInfo
+	, NULL
+};
+
+
 // Each effect is it's own self contained module
 #include "Effect_typeDefs.h"
 #include "effect_tremolo.h"
@@ -66,7 +80,7 @@ Effect_t *g_effects[] = {
 // Digilent hardware SPI library
 DSPI0 spi;
 // OLED Driver : Uses Adafruit GFX library
-Catmacey_SH1106 display(OLED_DC, OLED_RESET, OLED_CS, &spi);
+Catmacey_SH1106 display(OLED_DC, OLED_RESET, OLED_CS, &spi, g_font_table);
 
 // Global for holding the state of the various inputs
 InputState_t g_input;
@@ -224,7 +238,7 @@ void loop() {
 								currentAddr = &g_effects[0];
 							}
 							currentEffect = *currentAddr;
-							//Serial.println(currentEffect->name);
+							// Serial.println(currentEffect->name);
 							// sprintf(buff, "currentEffect size:%d, addr:%p, ptrAddr:%x \n", sizeof(*currentEffect), currentEffect, *currentAddr);
 							// Serial.println(buff);
 							// Flag that something has happened
@@ -296,7 +310,9 @@ void loop() {
 			display.clearDisplay();
 			display.setCursor(0,DISP_FEAT_INDENT);
 			display.setTextColor(1);
+			display.setFont(1);
 			display.print(currentEffect->name);
+			display.setFont(0);
 			display.drawFastHLine(0,17,DISP_FEAT_W,1);
 			if(currentEffect->state){
 				display.setTextColor(0);

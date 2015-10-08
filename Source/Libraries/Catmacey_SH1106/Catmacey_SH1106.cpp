@@ -51,7 +51,18 @@ void Catmacey_SH1106::drawPixel(int16_t x, int16_t y, uint16_t color) {
 }
 
 // constructor for hardware SPI - we indicate DataCommand, ChipSelect, Reset 
-Catmacey_SH1106::Catmacey_SH1106(int8_t DC, int8_t RST, int8_t CS, DSPI * SPI) : Adafruit_GFX(SH1106_LCDWIDTH, SH1106_LCDHEIGHT) {
+Catmacey_SH1106::Catmacey_SH1106(
+			int8_t DC
+		, int8_t RST
+		, int8_t CS
+		, DSPI * SPI
+		, const FONT_INFO * font_table[]
+	) : Adafruit_GFX(
+			SH1106_LCDWIDTH
+		, SH1106_LCDHEIGHT
+		, font_table
+) {
+	
 	dc = DC;
 	rst = RST;
 	cs = CS;
@@ -477,4 +488,3 @@ void Catmacey_SH1106::drawFastVLineInternal(int16_t x, int16_t __y, int16_t __h,
 		}
 	}
 }
-

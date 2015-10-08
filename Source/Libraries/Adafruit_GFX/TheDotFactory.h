@@ -19,6 +19,7 @@ typedef struct _font_info{
    uint8_t CharacterHeight;
    char StartCharacter;
    char EndCharacter;
+   const char *FontName;
    const FONT_CHAR_INFO *Descriptors;
    const uint8_t *Bitmaps;
 }FONT_INFO;

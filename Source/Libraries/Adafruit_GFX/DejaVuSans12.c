@@ -2162,7 +2162,7 @@ const FONT_CHAR_INFO dejaVuSans_12ptDescriptors[] =
 	{9, 1299}, 		// Y 
 	{10, 1326}, 		// Z 
 	{3, 1356}, 		// [ 
-	{5, 1365}, 		// \ 
+	{5, 1365}, 		// slash (Don't say it)
 	{3, 1380}, 		// ] 
 	{8, 1389}, 		// ^ 
 	{8, 1413}, 		// _ 
@@ -2205,6 +2205,7 @@ const FONT_INFO dejaVuSans_12ptFontInfo =
 	17, //  Character height
 	' ', //  Start character
 	'~', //  End character
+	"DejaVu Sans 12pt", // Name of font
 	dejaVuSans_12ptDescriptors, //  Character descriptor array
 	dejaVuSans_12ptBitmaps, //  Character bitmap array
 };

@@ -1,3 +1,14 @@
+Modified Adafruit_GFX library
+=============================
+
+Modified by Matt Casey to use multiple proportional fonts.
+Fonts are in TheDotFactory format.
+https://github.com/pavius/The-Dot-Factory/tree/master/TheDotFactory
+
+
+Adafruit licence.
+=================
+
 This is the core graphics library for all our displays, providing a common set of graphics primitives (points, lines, circles, etc.).  It needs to be paired with a hardware-specific library for each display device we carry (to handle the lower-level functions).
 
 Adafruit invests time and resources providing this open source code, please support Adafruit and open-source hardware by purchasing products from Adafruit!
@@ -20,3 +31,4 @@ Useful Resources
 -  drawXBitmap function
    You can use the GIMP photo editor to save a .xbm file and use the array saved in the file to draw a bitmap with the drawXBitmap function. See the pull request here for more details:
      https://github.com/adafruit/Adafruit-GFX-Library/pull/31
+

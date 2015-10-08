@@ -31,17 +31,14 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 */
 
-// Modified by Matt Casey to use proportional fonts.
+// Modified by Matt Casey to use multiple proportional fonts.
 // Fonts are in TheDotFactory format.
 // https://github.com/pavius/The-Dot-Factory/tree/master/TheDotFactory
 
+// Pass the font's you want to use as an array of pointers to their FONT_INFO structs
+// Can have multiple fonts but there is no protaction against having no font...
 
 #include "Adafruit_GFX.h"
-//#include "glcdfont.c"
-
-#include "LiberationSans10.c"
-//#include "LiberationMono11.c"
-//#include "DejazVuSans12.c"
 
 #ifdef __AVR__
  #include <avr/pgmspace.h>
@@ -49,7 +46,7 @@ POSSIBILITY OF SUCH DAMAGE.
  #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 #endif
 
-Adafruit_GFX::Adafruit_GFX(int16_t w, int16_t h):
+Adafruit_GFX::Adafruit_GFX(int16_t w, int16_t h, const FONT_INFO * font_table[]):
   WIDTH(w), HEIGHT(h)
 {
   _width    = WIDTH;
@@ -59,12 +56,44 @@ Adafruit_GFX::Adafruit_GFX(int16_t w, int16_t h):
   textsize  = 1;
   textcolor = textbgcolor = 0xFFFF;
   wrap      = true;
-  currentFont = &liberationSans_10ptFontInfo;
+  fontTableAddr = &font_table[0];
+  font_table_limit = 0;
+
+	// Find the table length by looking for the NULL pointer at the end
+	const FONT_INFO **currentFontAddr = font_table;
+	while(*currentFontAddr++ != NULL){
+		font_table_limit++;
+	}
+	// Start with currentFont as first one (Assume that we have one!)
+	currentFont = font_table[0];
+}
+
+uint8_t Adafruit_GFX::setFont(uint8_t idx){
+	// Sets the current font to use. 
+	// Pass the index for font_table
+	// Defaults to font 0, making the assumption that there is a font zero!
+	// char buff[100];
+	const FONT_INFO **currentAddr = NULL;
+	
+	// sprintf(buff, "setFont(%d). We have %d fonts starting at @%x", idx, font_table_limit, *fontTableAddr);
+	// Serial.println(buff);
+	// Range check
+	if(idx > font_table_limit){
+		idx = 0;
+	}
+	currentAddr = fontTableAddr + idx;
+	// sprintf(buff, "current addr @%x", *currentAddr);
+	// Serial.println(buff);
+	currentFont = *currentAddr;
+	
+	// sprintf(buff, "Font: %s", currentFont->FontName);
+	// Serial.println(buff);
+
+	return idx;
 }
 
 // Draw a circle outline
-void Adafruit_GFX::drawCircle(int16_t x0, int16_t y0, int16_t r,
-    uint16_t color) {
+void Adafruit_GFX::drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color) {
   int16_t f = 1 - r;
   int16_t ddF_x = 1;
   int16_t ddF_y = -2 * r;
@@ -557,4 +586,3 @@ int16_t Adafruit_GFX::height(void) const {
 void Adafruit_GFX::invertDisplay(boolean i) {
   // Do nothing, must be subclassed if supported
 }
-

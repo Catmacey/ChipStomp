@@ -1832,6 +1832,7 @@ const FONT_INFO liberationSans_10ptFontInfo =
 	14, //  Character height
 	' ', //  Start character
 	'~', //  End character
+	"Liberation Sans 10pt", // Name of font
 	liberationSans_10ptDescriptors, //  Character descriptor array
 	liberationSans_10ptBitmaps, //  Character bitmap array
 };

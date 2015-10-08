@@ -16,7 +16,7 @@ class Adafruit_GFX : public Print {
 
  public:
 
-  Adafruit_GFX(int16_t w, int16_t h); // Constructor
+  Adafruit_GFX(int16_t w, int16_t h, const FONT_INFO * font_table[]); // Constructor
 
   // This MUST be defined by the subclass:
   //virtual void drawPixel(int16_t x, int16_t y, uint16_t color) = 0;
@@ -58,7 +58,7 @@ class Adafruit_GFX : public Print {
     setTextWrap(boolean w),
     setRotation(uint8_t r);
     uint8_t drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg);
-    void setFont(FONT_INFO *Font);
+    uint8_t setFont(uint8_t);
     uint8_t getFontHeight();
     uint8_t getFontWidth();
     uint8_t getFontWidth(unsigned char c);
@@ -83,11 +83,14 @@ class Adafruit_GFX : public Print {
   uint16_t
     textcolor, textbgcolor;
   uint8_t
+  	font_table_limit,
     textsize,
     rotation;
   boolean
     wrap; // If set, 'wrap' text at right edge of display
-  const FONT_INFO * currentFont;
+  // const FONT_INFO *fonts[];
+  const FONT_INFO *currentFont;
+  const FONT_INFO **fontTableAddr;
 };
 
 #endif // _ADAFRUIT_GFX_H

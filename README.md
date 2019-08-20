@@ -8,7 +8,10 @@ The project is a merging of a ChipKit DP32 with an Open Music Labs Stompshield i
 
 The Chipkit is an arduino compatible platform powered by a 32bit Microchip PIC processor running at 40Mhz with 32Kb RAM and 128Kb flash.  
 
-The project is relativly simple in that it limits itself to using the PIC's internal RAM, built in 10bit ADC and utilizes two 8bit PWMs to form a single 16bit output.  Also included is a 128x64px 1.3" OLED to provide a nice user interface.
+UPDATE: There is a [3d printable case available for this project](https://github.com/Catmacey/ChipStompCase). 
+![3D Printed Case](https://github.com/Catmacey/ChipStompCase/blob/master/Images/real_complete.jpg?w=900)
+
+The project is relatively simple in that it limits itself to using the PIC's internal RAM, built in 10bit ADC and utilizes two 8bit PWMs to form a single 16bit output.  Also included is a 128x64px 1.3" OLED to provide a nice user interface.
 
 Currently the following effects are completed.
 - **Flanger** : Classic wobbly tape effect.
